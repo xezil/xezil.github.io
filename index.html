@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معمل غزل الحسكة - الكتالوج التفاعلي الفاخر</title>
+    <!-- Tailwind CSS لضمان التصميم المتجاوب والأنيق -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- خطوط غوغل الفاخرة للواجهات العربية والإنجليزية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات الشهيرة FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .amiri-font {
+            font-family: 'Amiri', serif;
+        }
+        /* خلفية الطاولة الخشبية الواقعية ثلاثية الأبعاد */
+        .wood-table {
+            background-color: #2e1a0c;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.02) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.2) 2px, transparent 2px);
+            background-size: 100px 100px, 120px 120px, 20px 20px, 150px 150px;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        /* عروق خشبية إضافية عبر التدرجات */
+        .wood-grain {
+            background: linear-gradient(135deg, #3d2310 25%, #2b180a 25%, #2b180a 50%, #3d2310 50%, #3d2310 75%, #2b180a 75%, #2b180a 100%);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        /* نظام منظور ثلاثي الأبعاد للكتاب */
+        .perspective-container {
+            perspective: 1500px;
+        }
+        .book-mockup {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+            box-shadow: 
+                -5px 5px 15px rgba(0,0,0,0.4),
+                -15px 20px 35px rgba(0,0,0,0.3),
+                -30px 40px 60px rgba(0,0,0,0.25);
+        }
+        /* حافة الكتاب المخيطة الفاخرة */
+        .book-spine {
+            background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 30%, #94a3b8 70%, #cbd5e1 100%);
+            box-shadow: inset -2px 0 5px rgba(0,0,0,0.15);
+        }
+        .spine-thread {
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 15px, #475569 15px, #475569 17px);
+        }
+        /* تأثيرات الحركة السلسة للكروت */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between">
+
+    <!-- الهيدر العلوي الأنيق المتجاوب -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="w-12 h-12 flex items-center justify-center bg-slate-50 rounded-xl p-1 border border-slate-100 shadow-inner">
+                    <!-- لوغو مدمج مستوحى من الغلاف الفعلي بدقة -->
+                    <svg viewBox="0 0 100 100" class="w-10 h-10">
+                        <path d="M28 20 V80 M72 20 V80 M28 50 H72" stroke="#1e293b" stroke-width="11" stroke-linecap="round"/>
+                        <path d="M50 32 C41 32 36 40 50 50 C64 40 59 32 50 32 Z" fill="#927244"/>
+                        <circle cx="50" cy="65" r="12" fill="#1e293b" />
+                        <path d="M44 65 Q50 58 56 65" stroke="#fff" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block text-xl font-black text-slate-900 leading-tight">معمل غزل الحسكة</span>
+                    <span class="block text-[11px] font-bold text-amber-800 tracking-widest uppercase">AL HASAKAH SPINNING MILL</span>
+                </div>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-1 space-x-reverse text-sm font-semibold">
+                <button onclick="switchTab('cover')" id="tab-cover" class="px-4 py-2.5 rounded-xl bg-slate-900 text-white transition-all shadow-sm">الغلاف التفاعلي</button>
+                <button onclick="switchTab('spool-viewer')" id="tab-spool-viewer" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition-all">محاكي بكرة الخيوط</button>
+                <button onclick="switchTab('specs')" id="tab-specs" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition-all">المواصفات المخبرية (Open End)</button>
+                <button onclick="switchTab('calculator')" id="tab-calculator" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition-all">حاسبة طلبيات الغزل</button>
+                <button onclick="switchTab('ai-advisor')" id="tab-ai-advisor" class="px-4 py-2.5 rounded-xl text-amber-700 hover:bg-amber-50 border border-transparent hover:border-amber-100 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-brain animate-pulse"></i>
+                    <span>المستشار الذكي (AI)</span>
+                </button>
+            </nav>
+
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-100 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-600 ml-2 animate-pulse"></span>
+                    سوريا - الحسكة
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى التفاعلي الرئيسي المطور -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- تبويب 1: الغلاف التفاعلي ثلاثي الأبعاد على الطاولة الخشبية -->
+        <div id="section-cover" class="tab-content block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- الجزء الأيمن: بيئة ثلاثية الأبعاد تفاعلية تحاكي غلاف الكتالوج الحقيقي بدقة مذهلة -->
+                <div class="lg:col-span-6 flex flex-col items-center perspective-container py-10 wood-table rounded-3xl overflow-hidden min-h-[640px] justify-center px-4 sm:px-10">
+                    <div class="wood-grain"></div>
+                    
+                    <!-- كائن الكتاب/الكتالوج ثلاثي الأبعاد المتفاعل مع حركة الفأرة واللمس -->
+                    <div id="interactive-book" class="book-mockup w-full max-w-[380px] bg-white rounded-r-xl overflow-hidden flex relative aspect-[3/4.2]">
+                        
+                        <!-- كعب أو حافة الكتاب المخيطة الأنيقة المقتبسة من الصورة الفنية -->
+                        <div class="w-10 book-spine relative flex flex-col justify-between py-6 items-center border-r border-slate-300">
+                            <div class="absolute inset-y-0 right-1 w-[2px] spine-thread opacity-45"></div>
+                            <div class="w-4 h-4 rounded-full bg-slate-400 opacity-60"></div>
+                            <div class="w-4 h-4 rounded-full bg-slate-400 opacity-60"></div>
+                            <div class="w-4 h-4 rounded-full bg-slate-400 opacity-60"></div>
+                            <div class="w-4 h-4 rounded-full bg-slate-400 opacity-60"></div>
+                        </div>
+
+                        <!-- الصفحة الأمامية للغلاف (مطابقة بدقة تامة لعناصر الصورة المرفقة) -->
+                        <div class="flex-grow flex flex-col justify-between p-6 sm:p-8 relative bg-white">
+                            <!-- تأثير اللمعان والعمق الضوئي ثلاثي الأبعاد -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/30 pointer-events-none z-20"></div>
+                            
+                            <!-- رأسية الغلاف الفنية -->
+                            <div class="text-center z-10 flex flex-col items-center">
+                                <!-- لوغو معمل غزل الحسكة الفاخر المطابق للغلاف -->
+                                <div class="mb-2">
+                                    <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                        <!-- الخطوط والأشكال الفنية المتداخلة للشعار -->
+                                        <path d="M35 25 V95 M85 25 V95 M35 60 H85" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+                                        <!-- لولب الغزل التوربيني الدوار بالمنتصف -->
+                                        <g transform="translate(60, 60)">
+                                            <circle cx="0" cy="0" r="16" fill="#927244" />
+                                            <path d="M-10 -10 L10 10 M-10 10 L10 -10" stroke="#fff" stroke-width="3"/>
+                                            <path d="M-15 0 H15 M0 -15 V15" stroke="#fff" stroke-width="3"/>
+                                        </g>
+                                        <!-- زهرة القطن الطبيعي الجزراوي مندمجة مع الشعار -->
+                                        <path d="M60 20 C48 20 42 28 60 40 C78 28 72 20 60 20 Z" fill="#d2c3b2" opacity="0.9"/>
+                                        <circle cx="60" cy="84" r="10" fill="#1e293b" />
+                                    </svg>
+                                </div>
+                                <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-wide leading-tight">معمل غزل الحسكة</h1>
+                                <p class="text-[9px] font-bold text-slate-500 tracking-wider uppercase mt-0.5">AL HASAKAH SPINNING MILL</p>
+                                <div class="w-16 h-[2px] bg-amber-700 my-2"></div>
+                                <h2 class="text-base sm:text-lg font-bold text-slate-800 tracking-widest leading-none">كتالوج المنتجات</h2>
+                                <p class="text-[9px] font-bold text-slate-400 tracking-widest uppercase">PRODUCT CATALOG</p>
+                            </div>
+
+                            <!-- خط إنتاج الغزل المبتكر (تمثيل مرئي تخطيطي لترتيب الآلات بالصورة) -->
+                            <div class="my-4 relative flex-grow rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shadow-inner flex flex-col justify-end p-2">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-100 to-white opacity-95"></div>
+                                
+                                <!-- رسمة بكرات الغزل المتراصفة في خط الإنتاج تماماً كالصورة المرفقة -->
+                                <svg viewBox="0 0 200 100" class="w-full h-24 text-slate-400 z-10">
+                                    <g stroke="currentColor" stroke-width="1.5" fill="none">
+                                        <!-- خط الآلة الطولي -->
+                                        <path d="M10 80 H190" stroke="#94a3b8" stroke-width="3"/>
+                                        <!-- بكرات الغزل الممتدة للمنظور -->
+                                        <ellipse cx="40" cy="40" r="14" rx="14" ry="14" fill="#fff" stroke="#64748b" stroke-width="2"/>
+                                        <ellipse cx="80" cy="40" r="14" rx="14" ry="14" fill="#fff" stroke="#64748b" stroke-width="2"/>
+                                        <ellipse cx="120" cy="40" r="14" rx="14" ry="14" fill="#fff" stroke="#64748b" stroke-width="2"/>
+                                        <ellipse cx="160" cy="40" r="14" rx="14" ry="14" fill="#fff" stroke="#64748b" stroke-width="2"/>
+                                        <!-- خيوط الغزل المنحدرة -->
+                                        <path d="M40 54 V80 M80 54 V80 M120 54 V80 M160 54 V80" stroke="#cbd5e1" stroke-width="1"/>
+                                    </g>
+                                </svg>
+                                
+                                <!-- يد فنية مدمجة تحمل باقة قطن طبيعية دافئة كما بالصورة -->
+                                <div class="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-100 flex items-center justify-between shadow-sm z-20">
+                                    <span class="text-[9px] font-black text-slate-800">قطن طبيعي جزراوي 100%</span>
+                                    <i class="fa-solid fa-cloud text-amber-600 text-sm"></i>
+                                </div>
+                            </div>
+
+                            <!-- الجزء السفلي للغلاف مع العنوان وشعار المنتج والـ QR -->
+                            <div class="text-center z-10 flex flex-col items-center">
+                                <div class="bg-slate-900 text-white py-1.5 px-4 rounded-lg w-full mb-2 shadow-sm">
+                                    <span class="block text-base sm:text-lg font-black tracking-wider leading-tight">خيوط توربينية</span>
+                                    <span class="block text-[8px] text-amber-400 font-bold">جودة المغزل.. من أصالة القطن الجزراوي</span>
+                                </div>
+                                
+                                <h3 class="text-sm font-black text-slate-800 tracking-wider">TURBINE YARNS</h3>
+                                <p class="text-[9px] font-bold text-slate-400 tracking-widest uppercase">Premium Quality Spinning</p>
+                                
+                                <!-- ذيل الغلاف مضافاً إليه العنوان المحدث والاتصال والـ QR كما بالصورة -->
+                                <div class="w-full mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[8px] text-slate-400 font-bold">
+                                    <span class="text-slate-600 font-black">سوريا - الحسكة</span>
+                                    <div class="flex space-x-1.5 space-x-reverse text-slate-500">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <i class="fa-solid fa-globe"></i>
+                                    </div>
+                                    <i class="fa-solid fa-qrcode text-base text-slate-700"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- تلميح توضيحي تفاعلي مريح للمستخدم -->
+                    <p class="text-[11px] text-amber-100/70 mt-6 font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles animate-bounce"></i>
+                        مرّر مؤشر الماوس أو المس الغلاف لتشعر بتأثير حركة المنظور الواقعية!
+                    </p>
+                </div>
+
+                <!-- الجزء الأيسر: ترحيب مميز واستعراض الميزات الفنية -->
+                <div class="lg:col-span-6 space-y-6 text-right">
+                    <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-100 shadow-sm">
+                        كتالوج المنتجات التفاعلي المطور 2026
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+                        مرحباً بكم في معمل غزل الحسكة <br>
+                        <span class="text-amber-700 amiri-font font-normal text-2xl sm:text-3xl">خيوط توربينية متينة ومطابقة للمواصفات العالمية</span>
+                    </h2>
+                    
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        نضع بين أيديكم نتاج عقود من الخبرة والتميز الصناعي في الجزيرة السورية المعطاءة. تم إعداد هذا الكتالوج الذكي خصيصاً لاستعراض مواصفات 
+                        <strong>الخيوط التوربينية (Open End)</strong> من القطن الطبيعي بنسبة 100%، بالاستناد الحصري والكامل لتقارير الفحوص المخبرية الدقيقة المعتمدة في معملنا.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-start space-x-3 space-x-reverse">
+                            <div class="p-2.5 bg-amber-50 rounded-xl text-amber-700">
+                                <i class="fa-solid fa-microscope text-lg"></i>
+                            </div>
+                            <div class="text-xs sm:text-sm">
+                                <h4 class="font-bold text-slate-900 mb-0.5">مطابقة مخبرية صارمة</h4>
+                                <p class="text-slate-500">مراقبة مستمرة لمعامل الاختلاف (C.V) لضمان ثبات الجودة.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-start space-x-3 space-x-reverse">
+                            <div class="p-2.5 bg-amber-50 rounded-xl text-amber-700">
+                                <i class="fa-solid fa-sliders text-lg"></i>
+                            </div>
+                            <div class="text-xs sm:text-sm">
+                                <h4 class="font-bold text-slate-900 mb-0.5">محاكاة سماكة حية</h4>
+                                <p class="text-slate-500">بكرة تفاعلية لرؤية ملمس الخيط قبل طلبه.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="switchTab('spool-viewer')" class="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all flex items-center space-x-2 space-x-reverse">
+                            <span>ابدأ محاكاة بكرة الخيوط</span>
+                            <i class="fa-solid fa-sliders"></i>
+                        </button>
+                        <button onclick="switchTab('specs')" class="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-bold transition-all flex items-center space-x-2 space-x-reverse">
+                            <i class="fa-solid fa-table"></i>
+                            <span>استعراض المواصفات</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- تبويب 2: محاكي سماكة الخيوط التفاعلي المتقدم (Interactive Yarn Spool Viewer) -->
+        <div id="section-spool-viewer" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- لوحة التحكم الجانبية واختيار نوع الخيط التوربيني -->
+                <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6 text-right order-2 lg:order-1">
+                    <div>
+                        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest">محاكاة ميكروية مخصصة</span>
+                        <h3 class="text-2xl font-black text-slate-900 mt-1">اختر عيار الخيط التوربيني</h3>
+                        <p class="text-slate-500 text-xs mt-1">تتغير سماكة ومظهر البكرة برمجياً فورياً لتعكس متانة الخيط الفعلي.</p>
+                    </div>
+
+                    <!-- أزرار الاختيار التفاعلية للخيوط التوربينية الفردية من الـ PDF -->
+                    <div class="grid grid-cols-2 gap-3" id="spool-selectors-container">
+                        <!-- سيتم توليد الأزرار تفاعلياً بواسطة JS لربطها فورياً مع رسمة الكانفاس -->
+                    </div>
+
+                    <!-- تخصيص لون ومظهر الخيوط -->
+                    <div class="pt-4 border-t border-slate-100 space-y-3">
+                        <h4 class="text-sm font-bold text-slate-800">لون ومعالجة خامة القطن الجزراوي:</h4>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="setYarnColor('natural')" id="color-btn-natural" class="px-3 py-2 text-xs font-bold rounded-lg bg-amber-50 text-amber-900 border border-amber-300 transition-all text-center">قطن طبيعي خام</button>
+                            <button onclick="setYarnColor('bleached')" id="color-btn-bleached" class="px-3 py-2 text-xs font-bold rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition-all text-center">مبيض ناصع</button>
+                            <button onclick="setYarnColor('tinted')" id="color-btn-tinted" class="px-3 py-2 text-xs font-bold rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition-all text-center">معالج خفيف</button>
+                        </div>
+                    </div>
+
+                    <!-- معلومات ومواصفات مخبرية فورية للخيط المختار للربط الفني -->
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-3 text-sm">
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-amber-800" id="spool-info-title">20/1 OPEN END</span>
+                            <span class="text-slate-500">تقييم المختبر الفني</span>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-relaxed" id="spool-info-desc">
+                            خيط متوسط السماكة رائع التوازن، مثالي للحياكة وتصنيع الملبوسات القطنية الخفيفة. خلو تام تقريباً من النقاط الرفيعة مع انتظام ممتاز في النسيج.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- نافذة العرض والمحاكاة الحية الفائقة الدقة للبكرة والزووم -->
+                <div class="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
+                    <div class="bg-slate-900 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center relative min-h-[460px] shadow-lg border border-slate-800">
+                        
+                        <!-- إضاءة استوديو خلفية للبكرة التفاعلية -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 opacity-80 pointer-events-none"></div>
+                        <div class="absolute w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <!-- الكانفاس المطور لرسم بكرة الخيط بدقة فائقة ديناميكياً -->
+                        <canvas id="yarnSpoolCanvas" width="340" height="380" class="relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] cursor-pointer"></canvas>
+
+                        <!-- لوحة التحكم بالدوران واللف -->
+                        <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-between items-center px-4">
+                            <span class="text-[10px] text-slate-400 font-bold flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-nodes text-emerald-500 animate-ping"></i>
+                                محاكاة حية ثنائية التوجيه
+                            </span>
+                            <div class="flex items-center space-x-2 space-x-reverse">
+                                <button onclick="toggleSpin()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1">
+                                    <i class="fa-solid fa-rotate" id="spin-icon"></i>
+                                    <span id="spin-text">دوران تلقائي</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ميكروسكوب فحص ملمس الألياف (Fiber Zoom Viewer) -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm text-right grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-8 space-y-2">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-100">
+                                زاوية التقريب المجهري x100
+                            </span>
+                            <h4 class="text-base font-black text-slate-950">مظهر ملمس خيوط القطن الجزراوي</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                يوضح الرسم المجهري المجاور مستوى شعيرات القطن النافرة ومدى انتظام وتداخل خيوط المغزل الدوار، مما يعكس متانة النسيج وخلوه من العيوب الهندسية والوبر الخشن.
+                            </p>
+                        </div>
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="w-24 h-24 rounded-full border-4 border-slate-200 overflow-hidden relative shadow-inner bg-slate-950 flex items-center justify-center">
+                                <canvas id="microFiberCanvas" width="96" height="96" class="w-full h-full"></canvas>
+                                <div class="absolute inset-0 border border-slate-400 rounded-full pointer-events-none opacity-40"></div>
+                                <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-red-500/30 pointer-events-none"></div>
+                                <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] bg-red-500/30 pointer-events-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- تبويب 3: جدول ومخطط المواصفات الفنية المخبرية الكاملة (Open End من الـ PDF) -->
+        <div id="section-specs" class="tab-content hidden">
+            <div class="space-y-8">
+                
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-right">
+                    <div>
+                        <span class="text-xs font-bold text-amber-700">الشفافية الهندسية المطلقة</span>
+                        <h2 class="text-2xl font-black text-slate-900 mt-0.5">جدول الفحص المخبري للخيوط التوربينية (Open End)</h2>
+                        <p class="text-slate-500 text-xs">مطابقة تماماً للتقرير الفني في ملف الـ PDF لضمان جودة الحياكة والتطريز</p>
+                    </div>
+                    <button onclick="switchTab('calculator')" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>انتقل لحاسبة التوريد الفورية</span>
+                    </button>
+                </div>
+
+                <!-- جدول المواصفات الفنية المطور -->
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-center border-collapse">
+                            <thead>
+                                <tr class="bg-slate-900 text-white font-bold text-xs sm:text-sm">
+                                    <th class="p-4 sm:p-5 text-right">نوع الخيط التوربيني (Yarn Type)</th>
+                                    <th class="p-4 sm:p-5">معامل الاختلاف (C.V)</th>
+                                    <th class="p-4 sm:p-5 text-rose-600">النقاط الرفيعة (THIN)</th>
+                                    <th class="p-4 sm:p-5 text-amber-600">النقاط السميكة (THICK)</th>
+                                    <th class="p-4 sm:p-5 text-cyan-600">العقد والشوائب (NEPS)</th>
+                                    <th class="p-4 sm:p-5">الاستعمال الصناعي الموصى به</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-xs sm:text-sm font-semibold" id="turbine-table-body">
+                                <!-- سيتم تعبئتها ديناميكياً من الـ PDF لضمان الدقة والمطابقة الكاملة -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- مقارنة بيانية تفاعلية متقدمة بين جودة الخيوط التوربينية -->
+                <div class="bg-slate-950 text-white rounded-3xl p-6 sm:p-8 text-right space-y-6 border border-slate-900">
+                    <div>
+                        <h3 class="text-lg font-black text-amber-500">مقارنة العقد والشوائب (Neps) بين الأصناف</h3>
+                        <p class="text-slate-400 text-xs">كلما كانت النسبة أقل كان الخيط أكثر صفاءً ونقاءً للملابس الفاخرة</p>
+                    </div>
+
+                    <div class="space-y-4" id="neps-comparison-chart">
+                        <!-- بارات المقارنة المولدة برمجياً بدقة متناهية -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- تبويب 4: حاسبة طلبيات الغزل الفورية والتقدير التفاعلي للعملاء -->
+        <div id="section-calculator" class="tab-content hidden">
+            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-10 rounded-3xl border border-slate-100 shadow-sm text-right space-y-8">
+                
+                <div class="text-center space-y-2">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-100 shadow-sm">
+                        أداة تخطيط التوريد الذكية
+                    </span>
+                    <h2 class="text-2xl font-black text-slate-900">حاسبة طلبيات خيوط معمل الحسكة</h2>
+                    <p class="text-slate-500 text-xs">احسب فورياً كمية البكرات والأوزان والعبوات لخطتك الصناعية</p>
+                    <div class="w-12 h-1 bg-amber-600 mx-auto my-2"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-slate-500">صنف خيط التوربين المطلوب</label>
+                        <select id="calc-yarn-type" onchange="calculateOrder()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <!-- خيارات الخيوط التوربينية المقتبسة من الـ PDF -->
+                        </select>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-slate-500">الوزن الكلي المطلوب (بالطن)</label>
+                        <input id="calc-weight" type="number" min="0.5" max="100" step="0.5" value="2" oninput="calculateOrder()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                </div>
+
+                <!-- بطاقات النتائج الفورية التفاعلية -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-1">
+                        <span class="text-[10px] font-bold text-slate-400">العدد التقديري للبكرات (Spools)</span>
+                        <span class="block text-xl font-black text-slate-900" id="calc-result-spools">--</span>
+                        <span class="text-[9px] text-slate-500">بمتوسط وزن بكرة 1.8 كغ</span>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-1">
+                        <span class="text-[10px] font-bold text-slate-400">إجمالي الأكياس الحامية (Bags)</span>
+                        <span class="block text-xl font-black text-slate-900" id="calc-result-bags">--</span>
+                        <span class="text-[9px] text-slate-500">بمعدل 25 كغ لكل كيس محمي</span>
+                    </div>
+
+                    <div class="p-4 bg-amber-50/50 rounded-2xl border border-amber-100 text-center space-y-1">
+                        <span class="text-[10px] font-bold text-amber-800">طول الخيط التقديري (بالكيلومتر)</span>
+                        <span class="block text-xl font-black text-amber-950" id="calc-result-length">--</span>
+                        <span class="text-[9px] text-amber-700/80">حساب متناهي وفق مقياس العيار</span>
+                    </div>
+                </div>
+
+                <!-- نموذج تأكيد الطلب السريع التفاعلي للعميل -->
+                <form onsubmit="handleInquirySubmit(event)" class="space-y-4 pt-4 border-t border-slate-100">
+                    <h3 class="text-sm font-black text-slate-900">تأكيد طلب حجز وتوريد مبدئي</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input id="inquiry-name" type="text" placeholder="الاسم الكريم أو اسم المنشأة الصناعية" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <input id="inquiry-phone" type="tel" placeholder="رقم الموبايل للتواصل (مثال: 09XXXXXXXX)" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs sm:text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-md flex items-center justify-center space-x-2 space-x-reverse">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <span>حجز وتصدير الطلب المبدئي</span>
+                    </button>
+                </form>
+
+                <!-- نافذة استجابة ناجحة فورية دون منبثقات مزعجة -->
+                <div id="inquiry-success-box" class="hidden p-4 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-start space-x-3 space-x-reverse animate-pulse">
+                    <div class="p-2 bg-emerald-100 text-emerald-800 rounded-xl">
+                        <i class="fa-solid fa-check-double text-lg"></i>
+                    </div>
+                    <div class="text-xs sm:text-sm text-right">
+                        <h4 class="font-bold text-emerald-900">تم تسجيل طلبكم وحفظه بنجاح!</h4>
+                        <p class="text-emerald-800/80 mt-1" id="success-message-text">سيتواصل معكم منسق جودة معمل غزل الحسكة قريباً.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- تبويب 5: مستشار الذكاء الاصطناعي النسيجي المطور (AI Textile Advisor) -->
+        <div id="section-ai-advisor" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- لوحة التوجيه والتحكم والمميزات الخاصة بالـ AI -->
+                <div class="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6 text-right">
+                    <div>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-100 mb-2">
+                            تكنولوجيا Gemini الذكية
+                        </span>
+                        <h3 class="text-2xl font-black text-slate-900">مستشارك النسيجي الفوري</h3>
+                        <p class="text-slate-500 text-xs mt-1">يساعدك الذكاء الاصطناعي في تحليل تقارير المختبر، ومطابقة النمر النسيجية، واقتراح الخيط الأمتن لإنتاجك.</p>
+                    </div>
+
+                    <!-- الأسئلة السريعة المعدة مسبقاً للمستخدمين -->
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-regular fa-lightbulb text-amber-600"></i>
+                            <span>أسئلة استرشادية شائعة:</span>
+                        </h4>
+                        <div class="flex flex-col gap-2">
+                            <button onclick="askAI('أريد تصنيع بناطيل جينز قاسية ومتينة، أي نمرة خيط توربيني تنصحني بها في معمل غزل الحسكة ولماذا؟')" class="p-3 text-xs text-right rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 transition-all text-slate-700 font-semibold leading-relaxed">
+                                👖 أي صنف هو الأفضل لصناعة الدنيم والجينز السميك؟
+                            </button>
+                            <button onclick="askAI('أعمل على خط إنتاج ملابس داخلية صيفية ناعمة جداً. ساعدني في اختيار النمرة المطابقة للمواصفات الفنية المعتمدة لديكم بمعدل عقد (Neps) منخفض.')" class="p-3 text-xs text-right rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 transition-all text-slate-700 font-semibold leading-relaxed">
+                                👕 اختيار خيط للملابس الداخلية الصيفية الفاخرة
+                            </button>
+                            <button onclick="askAI('اشرح لي من فضلك ماذا يعني معامل الاختلاف (C.V) في تقارير الفحص المخبري للخيوط التوربينية وكيف يؤثر على كفاءة النسيج الدائري؟')" class="p-3 text-xs text-right rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 transition-all text-slate-700 font-semibold leading-relaxed">
+                                🔬 ما معنى معامل الاختلاف (C.V) في الفحص المخبري؟
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- إشعار الربط التفاعلي الديناميكي المبتكر -->
+                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-100 text-xs text-amber-900 leading-relaxed space-y-2">
+                        <div class="flex items-center gap-1.5 font-bold">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-700 animate-pulse"></i>
+                            <span>تفاعل برمجيات التطبيق التلقائي:</span>
+                        </div>
+                        <p>عندما يوصي المستشار الفني بمنتج معين (مثل <strong>20/1 Open End</strong>)، سيعرض لك الكتالوج تلقائياً خياراً لتثبيته في <strong>محاكي البكرة وحاسبة التوريد بضغطة زر واحدة!</strong></p>
+                    </div>
+                </div>
+
+                <!-- نافذة الدردشة والردود التفاعلية -->
+                <div class="lg:col-span-8 flex flex-col h-[580px] bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+                    <!-- ترويسة شات الروبوت الخبير -->
+                    <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-black shadow-md">
+                                <i class="fa-solid fa-microscope text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-black">الخبير النسيجي الذكي لغزل الحسكة</span>
+                                <span class="block text-[10px] text-slate-400">مدعوم بـ Gemini AI الفائق</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-[10px] text-emerald-400 font-bold">نشط فورياً</span>
+                        </div>
+                    </div>
+
+                    <!-- مساحة الرسائل والردود للدردشة -->
+                    <div id="ai-chat-messages" class="flex-grow p-6 overflow-y-auto space-y-4 bg-slate-50 text-right flex flex-col justify-end">
+                        <!-- ترحيب البداية الافتراضي -->
+                        <div class="flex gap-3 max-w-[85%] self-start flex-row-reverse text-right">
+                            <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xs shrink-0 shadow-inner">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="p-4 bg-white rounded-2xl border border-slate-100 text-xs sm:text-sm text-slate-800 space-y-2 leading-relaxed">
+                                <p class="font-black text-amber-800 text-xs mb-1">المهندس الاستشاري الافتراضي:</p>
+                                <p>مرحباً بكم في وحدة الاستشارات الهندسية لغزل الحسكة. أنا هنا لمساعدتكم في فهم المواصفات الفنية لإنتاجنا التوربيني (Open End) ومطابقة النمر مع طلبياتكم الصناعية. كيف يمكنني إرشادكم اليوم؟</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- مؤشر التحميل والتفكير للذكاء الاصطناعي -->
+                    <div id="ai-typing-loader" class="hidden px-6 py-3 bg-slate-50 flex items-center gap-2 justify-end text-xs text-slate-500 font-semibold">
+                        <span>جاري معالجة استفساركم وصياغة التحليل الفني...</span>
+                        <div class="flex gap-1">
+                            <span class="w-1.5 h-1.5 bg-amber-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+                            <span class="w-1.5 h-1.5 bg-amber-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                            <span class="w-1.5 h-1.5 bg-amber-600 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                        </div>
+                    </div>
+
+                    <!-- منطقة إرسال الرسائل الفورية والمقترحة -->
+                    <div class="p-4 bg-white border-t border-slate-100">
+                        <div class="flex gap-3">
+                            <button onclick="sendChatMessage()" class="px-5 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-md flex items-center gap-2 shrink-0">
+                                <span>إرسال</span>
+                                <i class="fa-solid fa-paper-plane-reverse"></i>
+                            </button>
+                            <input id="ai-user-input" type="text" placeholder="اكتب سؤالك الفني هنا.. (مثال: ما هو أفضل صنف للمفروشات؟)" onkeypress="handleChatKeyPress(event)" class="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-xs sm:text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500 text-right">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- الفوتر السفلي المتناسق مع الهوية والموقع -->
+    <footer class="bg-slate-900 text-white border-t border-slate-800 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-right text-xs sm:text-sm">
+            
+            <div class="space-y-3">
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <svg viewBox="0 0 100 100" class="w-10 h-10">
+                        <path d="M25 20 V80 M75 20 V80 M25 50 H75" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="14" fill="#c5a059" />
+                    </svg>
+                    <span class="text-base font-black tracking-wide">معمل غزل الحسكة</span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    فخر الصناعة النسيجية الوطنية في الجزيرة السورية. ملتزمون بإنتاج أجود خامات الخيوط التوربينية والممشطة باستخدام أفضل الأقطان الطبيعية المحلية ووفق أعلى معايير الانتظام والمتانة العالمية.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-amber-500">التبويبات التفاعلية للكتالوج</h3>
+                <ul class="space-y-2 text-slate-300 font-semibold">
+                    <li><button onclick="switchTab('cover')" class="hover:text-amber-400 transition-all">الواجهة الرئيسية للغلاف</button></li>
+                    <li><button onclick="switchTab('spool-viewer')" class="hover:text-amber-400 transition-all">محاكي بكرة الخيوط التفاعلي</button></li>
+                    <li><button onclick="switchTab('specs')" class="hover:text-amber-400 transition-all">المواصفات الفنية المخبرية</button></li>
+                    <li><button onclick="switchTab('calculator')" class="hover:text-amber-400 transition-all">حاسبة طلبيات الغزل الفورية</button></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-amber-500">العنوان والاتصال الرسمي</h3>
+                <p class="text-slate-400 text-xs flex items-center justify-end space-x-2 space-x-reverse">
+                    <span>الجمهورية العربية السورية، الحسكة، المنطقة الصناعية</span>
+                    <i class="fa-solid fa-location-dot text-amber-500"></i>
+                </p>
+                <p class="text-slate-400 text-xs flex items-center justify-end space-x-2 space-x-reverse">
+                    <span>هاتف: 0096352XXXXXX | الفاكس: 0096352XXXXXX</span>
+                    <i class="fa-solid fa-phone text-amber-500"></i>
+                </p>
+                <div class="pt-2 flex justify-end space-x-3 space-x-reverse text-slate-400">
+                    <a href="#" class="hover:text-amber-400 transition-all"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    <a href="#" class="hover:text-amber-500 transition-all"><i class="fa-solid fa-globe text-lg"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 font-bold">
+            جميع الحقوق محفوظة لمعمل غزل الحسكة © 2026
+        </div>
+    </footer>
+
+    <!-- منطق البرمجة التفاعلي والتحكم (JavaScript) -->
+    <script>
+        // مصفوفة بيانات الخيوط التوربينية (Open End) المأخوذة حصرياً من ملف الـ PDF المرفق
+        const turbineYarns = [
+            { count: '6/1 OPEN END', cv: 11.5, thin: 0, thick: 95, neps: 261, category: 'coarse', usage: 'للجينز السميك والمنسوجات شديدة المقاومة وحقائب التعبئة.' },
+            { count: '10/1 OPEN END', cv: 12.7, thin: 3, thick: 18, neps: 263, category: 'coarse', usage: 'للحقائب والمنسوجات المنزلية الثقيلة والمفروشات المتينة.' },
+            { count: '12/1 OPEN END', cv: 11.9, thin: 3, thick: 2, neps: 39, category: 'coarse', usage: 'للأقمشة الصناعية، شراشف الطاولات الفخمة ذات المتانة العالية.' },
+            { count: '16/1 OPEN END', cv: 13.0, thin: 4, thick: 2, neps: 99, category: 'medium', usage: 'للملابس اليومية العملية، والدنيم الخفيف، والحياكة التقليدية.' },
+            { count: '20/1 OPEN END', cv: 12.8, thin: 0, thick: 2, neps: 293, category: 'fine', usage: 'مثالي لحياكة أقمشة التيشرتات الصيفية والقطنيات الناعمة الدائرية.' },
+            { count: '30/1 OPEN END', cv: 12.5, thin: 5, thick: 6, neps: 246, category: 'fine', usage: 'للملابس والملبوسات الداخلية الفاخرة التي تتطلب أقصى درجات النعومة.' }
+        ];
+
+        let selectedYarn = turbineYarns[4]; // افتراضياً خيط 20/1
+        let currentYarnColor = 'natural'; // الخيار الافتراضي للون بكرة الخيط
+        let isSpinning = false; // التحكم بالدوران التلقائي للبكرة
+        let spinAngle = 0;
+        let animationFrameId = null;
+
+        // تهيئة الكتالوج وتوليد العناصر التفاعلية ديناميكياً فور تحميل الصفحة
+        window.onload = function() {
+            initBookParallax();
+            initSpoolControls();
+            renderSpecsTable();
+            renderNepsChart();
+            populateCalculatorOptions();
+            calculateOrder();
+            drawSpool();
+            drawMicroFiber();
+        }
+
+        // تأثير البارالاكس ثلاثي الأبعاد المذهل للغلاف الفني المقتبس من الصورة
+        function initBookParallax() {
+            const container = document.querySelector('.perspective-container');
+            const book = document.getElementById('interactive-book');
+            if(!container || !book) return;
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                // تحويل الماوس لزوايا دوران ملائمة تعطي شعوراً حقيقياً بالبعد الثالث
+                const rotateY = (x / rect.width) * 35; 
+                const rotateX = -(y / rect.height) * 35; 
+
+                book.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                book.style.boxShadow = `
+                    ${-rotateY}px ${Math.abs(rotateX) + 15}px 30px rgba(0,0,0,0.35),
+                    ${-rotateY * 1.5}px ${Math.abs(rotateX) * 1.5 + 25}px 50px rgba(0,0,0,0.25)
+                `;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                // إرجاع الكتاب لوضعه المستقر عند خروج الماوس
+                book.style.transform = 'rotateX(5deg) rotateY(-5deg)';
+                book.style.boxShadow = `
+                    -5px 5px 15px rgba(0,0,0,0.4),
+                    -15px 20px 35px rgba(0,0,0,0.3)
+                `;
+            });
+        }
+
+        // بناء لوحة الخيارات الجانبية للبكرة التفاعلية
+        function initSpoolControls() {
+            const container = document.getElementById('spool-selectors-container');
+            if(!container) return;
+            container.innerHTML = '';
+
+            turbineYarns.forEach(yarn => {
+                const btn = document.createElement('button');
+                btn.id = `spool-btn-${yarn.count.split('/')[0]}`;
+                btn.onclick = () => selectSpoolYarn(yarn);
+                btn.className = `p-3 rounded-xl border text-xs font-extrabold text-center transition-all ${
+                    yarn.count === selectedYarn.count 
+                    ? 'bg-slate-950 text-white border-slate-950 shadow-md' 
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                }`;
+                btn.innerHTML = `
+                    <span class="block text-sm">${yarn.count.split(' ')[0]}</span>
+                    <span class="block text-[9px] font-medium text-amber-700 mt-0.5">T: ${yarn.cv} C.V</span>
+                `;
+                container.appendChild(btn);
+            });
+
+            updateSpoolInfoCard();
+        }
+
+        // معالجة اختيار خيط معين في محاكي البكرة
+        function selectSpoolYarn(yarn) {
+            // إلغاء كلاسات التحديد السابقة
+            turbineYarns.forEach(y => {
+                const btn = document.getElementById(`spool-btn-${y.count.split('/')[0]}`);
+                if (btn) btn.className = 'p-3 rounded-xl border text-xs font-extrabold text-center bg-white text-slate-700 border-slate-200 hover:bg-slate-50 transition-all';
+            });
+
+            // تفعيل الكلاس الحالي
+            const activeBtn = document.getElementById(`spool-btn-${yarn.count.split('/')[0]}`);
+            if (activeBtn) activeBtn.className = 'p-3 rounded-xl border text-xs font-extrabold text-center bg-slate-950 text-white border-slate-950 shadow-md transition-all';
+
+            selectedYarn = yarn;
+            updateSpoolInfoCard();
+            drawSpool();
+            drawMicroFiber();
+
+            // المزامنة التلقائية مع الحاسبة
+            const calcSelect = document.getElementById('calc-yarn-type');
+            if (calcSelect) {
+                calcSelect.value = yarn.count;
+                calculateOrder();
+            }
+        }
+
+        // تحديث كارد الملاحظات الهندسية الفوري
+        function updateSpoolInfoCard() {
+            const titleEl = document.getElementById('spool-info-title');
+            const descEl = document.getElementById('spool-info-desc');
+            if(titleEl) titleEl.innerText = selectedYarn.count;
+            if(descEl) descEl.innerText = `يتميز خيط ${selectedYarn.count} بمتانة استثنائية ونسبة معامل اختلاف (C.V) مخبري تبلغ ${selectedYarn.cv}. ${selectedYarn.usage}`;
+        }
+
+        // ضبط خامة المعالجة ولون الخيط للتأثير التفاعلي الفاخر للبكرة
+        function setYarnColor(color) {
+            ['natural', 'bleached', 'tinted'].forEach(c => {
+                const btn = document.getElementById(`color-btn-${c}`);
+                if (btn) {
+                    if (c === color) {
+                        btn.className = 'px-3 py-2 text-xs font-bold rounded-lg bg-amber-50 text-amber-900 border border-amber-300 transition-all text-center';
+                    } else {
+                        btn.className = 'px-3 py-2 text-xs font-bold rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition-all text-center';
+                    }
+                }
+            });
+            currentYarnColor = color;
+            drawSpool();
+            drawMicroFiber();
+        }
+
+        // محاكي بكرة خيوط القطن التفاعلي المبرمج بالكامل (Canvas Rendering Engine)
+        function drawSpool() {
+            const canvas = document.getElementById('yarnSpoolCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            // تحديد لوحة ألوان البكرة حسب معالجة الخامة
+            let threadColor = '#f5eedc'; // قطن طبيعي خام دافئ
+            let shadowColor = '#e3d5b8';
+            if (currentYarnColor === 'bleached') {
+                threadColor = '#faf9f6'; // قطن مبيض ناصع البياض
+                shadowColor = '#e5e4e2';
+            } else if (currentYarnColor === 'tinted') {
+                threadColor = '#e2dfd2'; // قطن معالج خفيف ذو ملمس كلاسيكي
+                shadowColor = '#c8c5b5';
+            }
+
+            // رسم قلب البكرة البلاستيكي العلوي (Core Tube)
+            ctx.fillStyle = '#1e293b'; 
+            ctx.beginPath();
+            ctx.ellipse(w/2, 40, 24, 7, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // رسم القاعدة التحتية لبكرة الغزل الصناعي
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath();
+            ctx.ellipse(w/2, h - 30, 72, 14, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // المقاييس الهندسية للبكرة الملتفة
+            const topY = 45;
+            const bottomY = h - 35;
+            const topR = 28;
+            const bottomR = 62;
+
+            // حساب سماكة وكثافة الخيط الملتف برمجياً بناء على عيار الغزل التوربيني المختار
+            const countNum = parseInt(selectedYarn.count.split('/')[0]) || 20;
+            
+            // سماكة ميكروية متجاوبة
+            const thickness = Math.max(0.7, Math.min(4.8, 26 / countNum));
+            // الكثافة التقديرية للفات
+            const totalLines = Math.min(320, Math.max(90, countNum * 10));
+
+            // رسم اللفات الحلزونية المتقاطعة للغزل التوربيني التفاعلي
+            for (let i = 0; i < totalLines; i++) {
+                const t = i / totalLines;
+                const y = topY + t * (bottomY - topY);
+                const currentR = topR + t * (bottomR - topR);
+
+                ctx.beginPath();
+                ctx.strokeStyle = (i % 2 === 0) ? threadColor : shadowColor;
+                ctx.lineWidth = (i % 2 === 0) ? thickness : thickness * 0.85;
+
+                // تطبيق اهتزازات حلزونية محاكاة للدوران واللف الميكانيكي للبكرات
+                const angleOffset = spinAngle + (i * 0.12);
+                const rx = currentR + Math.sin(angleOffset) * (thickness * 0.1);
+
+                ctx.ellipse(w/2, y, rx, Math.max(1.8, rx * 0.13), 0, Math.PI, Math.PI * 2);
+                ctx.stroke();
+
+                // رسم خيوط متقاطعة لتوثيق نمط الحياكة المتقاطع (Cross-wound structure)
+                if (i % 5 === 0) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+                    ctx.lineWidth = thickness * 0.45;
+                    ctx.moveTo(w/2 - rx, y);
+                    ctx.lineTo(w/2 + rx, Math.min(bottomY, y + 12));
+                    ctx.stroke();
+                }
+            }
+
+            // تطبيق قناع التدرج ثلاثي الأبعاد الواقعي (3D Volumetric Shading overlay)
+            const gradient = ctx.createLinearGradient(w/2 - bottomR, 0, w/2 + bottomR, 0);
+            gradient.addColorStop(0, 'rgba(0, 0, 0, 0.35)');
+            gradient.addColorStop(0.22, 'rgba(0, 0, 0, 0.08)');
+            gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.28)');
+            gradient.addColorStop(0.78, 'rgba(0, 0, 0, 0.08)');
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0.45)');
+
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.moveTo(w/2 - topR, topY);
+            ctx.lineTo(w/2 + topR, topY);
+            ctx.lineTo(w/2 + bottomR, bottomY);
+            ctx.lineTo(w/2 - bottomR, bottomY);
+            ctx.closePath();
+            ctx.fill();
+
+            // كارت الماركة المبرمج فوق بكرة الخيط التفاعلية
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+            ctx.shadowBlur = 6;
+            ctx.beginPath();
+            ctx.roundRect(w/2 - 42, h/2 - 16, 84, 32, 6);
+            ctx.fill();
+            ctx.shadowBlur = 0; // تنظيف الـ Shadow
+
+            // كتابة العيار والماركة برمجياً بدقة فائقة
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 12px Cairo';
+            ctx.textAlign = 'center';
+            ctx.fillText(selectedYarn.count, w/2, h/2 - 2);
+            ctx.font = '700 8px Cairo';
+            ctx.fillStyle = '#b45309';
+            ctx.fillText('معمل غزل الحسكة', w/2, h/2 + 10);
+        }
+
+        // محاكاة ميكروسكوب ألياف القطن x100 برمجياً بدقة ميكروية
+        function drawMicroFiber() {
+            const canvas = document.getElementById('microFiberCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const size = canvas.width;
+            ctx.clearRect(0, 0, size, size);
+
+            // خلفية مظلمة ومجهرية للمعمل
+            ctx.fillStyle = '#090d16';
+            ctx.fillRect(0, 0, size, size);
+
+            let fiberColor = '#eae2cf';
+            if (currentYarnColor === 'bleached') fiberColor = '#ffffff';
+            else if (currentYarnColor === 'tinted') fiberColor = '#dcd8c8';
+
+            // العيار يؤثر على سماكة ورقة الخيط المجهري
+            const countNum = parseInt(selectedYarn.count.split('/')[0]) || 20;
+            const coreThickness = Math.max(2, Math.min(16, 80 / countNum));
+
+            // رسم الخط الرئيسي للألياف الملتفة حول بعضها
+            ctx.strokeStyle = fiberColor;
+            ctx.lineWidth = coreThickness;
+            ctx.beginPath();
+            ctx.moveTo(size / 2 - 10, 0);
+            ctx.bezierCurveTo(size / 2 + 10, size / 3, size / 2 - 15, (size * 2) / 3, size / 2 + 5, size);
+            ctx.stroke();
+
+            // رسم شعيرات مجهرية متفرعة (Fibers Hairiness) - تزداد بالخيوط الخشنة
+            const hairinessCount = Math.max(5, Math.min(25, 40 - countNum));
+            ctx.strokeStyle = 'rgba(234, 226, 207, 0.6)';
+            ctx.lineWidth = 0.8;
+
+            for (let i = 0; i < hairinessCount; i++) {
+                const y = (i / hairinessCount) * size;
+                const offset = Math.sin(i * 1.5) * 15;
+                ctx.beginPath();
+                ctx.moveTo(size / 2 + offset / 3, y);
+                ctx.lineTo(size / 2 + offset, y + Math.cos(i) * 10);
+                ctx.stroke();
+            }
+        }
+
+        // تشغيل وإيقاف الدوران التلقائي التفاعلي
+        function toggleSpin() {
+            isSpinning = !isSpinning;
+            const btnText = document.getElementById('spin-text');
+            const btnIcon = document.getElementById('spin-icon');
+
+            if(!btnText || !btnIcon) return;
+
+            if (isSpinning) {
+                btnText.innerText = 'إيقاف الدوران';
+                btnIcon.className = 'fa-solid fa-pause animate-spin';
+                animateSpool();
+            } else {
+                btnText.innerText = 'دوران تلقائي';
+                btnIcon.className = 'fa-solid fa-rotate';
+                cancelAnimationFrame(animationFrameId);
+            }
+        }
+
+        // محاكاة أنيميشن الدوران المتناغم للبكرة
+        function animateSpool() {
+            spinAngle += 0.05;
+            drawSpool();
+            animationFrameId = requestAnimationFrame(animateSpool);
+        }
+
+        // توليد جدول المواصفات الفنية لتقرير الـ PDF كاملاً وبدقة
+        function renderSpecsTable() {
+            const tbody = document.getElementById('turbine-table-body');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+
+            turbineYarns.forEach(yarn => {
+                const tr = document.createElement('tr');
+                tr.className = yarn.count === selectedYarn.count ? 'bg-amber-50/50 font-bold border-l-4 border-amber-600' : 'hover:bg-slate-50 transition-all';
+                tr.innerHTML = `
+                    <td class="p-4 sm:p-5 text-right font-black text-slate-900">${yarn.count}</td>
+                    <td class="p-4 sm:p-5 text-slate-800">${yarn.cv} C.V</td>
+                    <td class="p-4 sm:p-5 text-rose-600 font-bold">${yarn.thin}</td>
+                    <td class="p-4 sm:p-5 text-amber-600 font-bold">${yarn.thick}</td>
+                    <td class="p-4 sm:p-5 text-cyan-600 font-bold">${yarn.neps}</td>
+                    <td class="p-4 sm:p-5 text-slate-500 text-xs leading-relaxed font-semibold">${yarn.usage}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // توليد مخطط المقارنة المخبري للعقد والشوائب (Neps Bar Chart)
+        function renderNepsChart() {
+            const container = document.getElementById('neps-comparison-chart');
+            if(!container) return;
+            container.innerHTML = '';
+
+            // نحدد النسبة القصوى كمعيار للبارات (293 عقدة كحد أقصى بالـ PDF)
+            const maxNeps = 300;
+
+            turbineYarns.forEach(yarn => {
+                const percent = (yarn.neps / maxNeps) * 100;
+                
+                const barRow = document.createElement('div');
+                barRow.className = 'space-y-1';
+                barRow.innerHTML = `
+                    <div class="flex justify-between text-xs font-bold text-slate-300">
+                        <span>${yarn.count}</span>
+                        <span class="text-amber-400">${yarn.neps} عقدة</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                        <div class="bg-gradient-to-l from-amber-600 to-amber-400 h-full rounded-full transition-all duration-700" style="width: ${percent}%"></div>
+                    </div>
+                `;
+                container.appendChild(barRow);
+            });
+        }
+
+        // تعبئة حقول حاسبة التوريد الفورية وخيارات الاختيار
+        function populateCalculatorOptions() {
+            const select = document.getElementById('calc-yarn-type');
+            if(!select) return;
+            select.innerHTML = '';
+
+            turbineYarns.forEach(yarn => {
+                const opt = document.createElement('option');
+                opt.value = yarn.count;
+                opt.innerText = yarn.count;
+                select.appendChild(opt);
+            });
+        }
+
+        // حساب تفاصيل وكميات بكرات التوريد ميكروياً وتفاعلياً
+        function calculateOrder() {
+            const selectEl = document.getElementById('calc-yarn-type');
+            const weightEl = document.getElementById('calc-weight');
+            if(!selectEl || !weightEl) return;
+
+            const yarnType = selectEl.value;
+            const weightTons = parseFloat(weightEl.value) || 0;
+
+            const selected = turbineYarns.find(y => y.count === yarnType) || selectedYarn;
+            const countNumber = parseInt(selected.count.split('/')[0]) || 20;
+
+            // وزن البكرة الواحدة الافتراضي المعتمد في معمل غزل الحسكة هو 1.8 كيلوغرام
+            const weightKg = weightTons * 1000;
+            const totalSpools = Math.round(weightKg / 1.8);
+            
+            // سعة الكيس الحامي للبكرات حوالي 25 كغ
+            const totalBags = Math.round(weightKg / 25);
+
+            // حساب طول الخيط التقديري بالاعتماد على الترقيم الإنجليزي (Cotton Count)
+            // المعامل: 1 باوند قطن رقم 1 يعطي 840 ياردة خيط
+            // طول الخيط الكلي التقريبي بالكيلومتر = الوزن بالكغ * 1.693 * الرقم الإنجليزي للمقاس
+            const totalLengthKm = Math.round(weightKg * 1.693 * countNumber);
+
+            // تحديث النتائج في الواجهة مع التنسيق الأنيق للآلاف
+            const spoolsEl = document.getElementById('calc-result-spools');
+            const bagsEl = document.getElementById('calc-result-bags');
+            const lenEl = document.getElementById('calc-result-length');
+
+            if(spoolsEl) spoolsEl.innerText = totalSpools.toLocaleString() + ' بكرة';
+            if(bagsEl) bagsEl.innerText = totalBags.toLocaleString() + ' كيس مغلف';
+            if(lenEl) lenEl.innerText = totalLengthKm.toLocaleString() + ' كم';
+        }
+
+        // الانتقال السلس التفاعلي بين التبويبات الفنية للكتالوج
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.replace('block', 'hidden'));
+
+            // إظهار القسم المختار
+            const targetSec = document.getElementById(`section-${tabId}`);
+            if (targetSec) targetSec.classList.replace('hidden', 'block');
+
+            // تحديث تصميم أزرار التنقل النشطة وغير النشطة
+            const tabs = ['cover', 'spool-viewer', 'specs', 'calculator', 'ai-advisor'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if (btn) {
+                    if (tab === tabId) {
+                        btn.className = 'px-4 py-2.5 rounded-xl bg-slate-900 text-white transition-all shadow-sm';
+                    } else if (tab === 'ai-advisor') {
+                        btn.className = 'px-4 py-2.5 rounded-xl text-amber-700 hover:bg-amber-50 border border-transparent hover:border-amber-100 transition-all flex items-center gap-1.5';
+                    } else {
+                        btn.className = 'px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition-all';
+                    }
+                }
+            });
+
+            // رسم البكرة والميكروسكوب في حال تم اختيار التبويب الخاص بها لضمان رندر خالي من المشاكل
+            if (tabId === 'spool-viewer') {
+                setTimeout(() => {
+                    drawSpool();
+                    drawMicroFiber();
+                }, 50);
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // معالجة وإصدار الطلب المبدئي التفاعلي دون منبثقات مزعجة
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            const calcYarnEl = document.getElementById('calc-yarn-type');
+            const calcWEl = document.getElementById('calc-weight');
+            const inqNEl = document.getElementById('inquiry-name');
+            const inqPEl = document.getElementById('inquiry-phone');
+
+            if(!calcYarnEl || !calcWEl || !inqNEl || !inqPEl) return;
+
+            const yarnType = calcYarnEl.value;
+            const weight = calcWEl.value;
+            const name = inqNEl.value;
+
+            const successBox = document.getElementById('inquiry-success-box');
+            const successText = document.getElementById('success-message-text');
+
+            if(successText) successText.innerText = `أهلاً بك يا ${name}. لقد تم حجز كمية مبدئية قدرها ${weight} طن من خيوط ${yarnType} بنجاح. سيقوم المنسق الإداري في معمل الحسكة بالتواصل معكم على الرقم لتأكيد تفاصيل الشحن.`;
+            if(successBox) successBox.classList.replace('hidden', 'block');
+
+            // تنظيف الحقول بعد نجاح التسجيل التفاعلي
+            inqNEl.value = '';
+            inqPEl.value = '';
+        }
+
+        // ==========================================
+        //  منطق استدعاء نموذج Gemini AI وتكامل التطبيق
+        // ==========================================
+
+        // إرسال سؤال سريع من الخيارات المحددة مسبقاً
+        function askAI(promptText) {
+            const inputField = document.getElementById('ai-user-input');
+            if (inputField) {
+                inputField.value = promptText;
+                sendChatMessage();
+            }
+        }
+
+        // التعامل مع مفتاح Enter في إدخال الشات
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        // إضافة رسالة جديدة في مساحة الدردشة
+        function appendChatMessage(sender, text, isAi = false, targetYarnToApply = null) {
+            const chatMessagesContainer = document.getElementById('ai-chat-messages');
+            if (!chatMessagesContainer) return;
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex gap-3 max-w-[85%] ${isAi ? 'self-start flex-row-reverse text-right' : 'self-end text-right'}`;
+
+            // الأيقونة المرافقة للهوية
+            let iconHtml = '';
+            if (isAi) {
+                iconHtml = `
+                    <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xs shrink-0 shadow-inner">
+                        <i class="fa-solid fa-robot animate-pulse"></i>
+                    </div>
+                `;
+            } else {
+                iconHtml = `
+                    <div class="w-8 h-8 rounded-lg bg-slate-800 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-inner">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                `;
+            }
+
+            // محتوى الرسالة
+            let bodyHtml = `
+                <div class="p-4 ${isAi ? 'bg-white border border-slate-100 text-slate-800' : 'bg-slate-900 text-white'} rounded-2xl text-xs sm:text-sm leading-relaxed space-y-2">
+                    <p class="font-black ${isAi ? 'text-amber-800' : 'text-amber-400'} text-xs mb-1">${sender}:</p>
+                    <p class="whitespace-pre-line">${text}</p>
+            `;
+
+            // في حال وجود منتج موصى به، نقوم بإضافة كرت تطبيق فوري وتفاعلي
+            if (isAi && targetYarnToApply) {
+                bodyHtml += `
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100/50">
+                        <div class="text-[11px] font-bold text-slate-700">توصية فورية: صنف ${targetYarnToApply}</div>
+                        <button onclick="applyAIPrediction('${targetYarnToApply}')" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white text-[10px] font-bold rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>تطبيق الآن بالمحاكي والحاسبة</span>
+                        </button>
+                    </div>
+                `;
+            }
+
+            bodyHtml += `</div>`;
+            messageDiv.innerHTML = iconHtml + bodyHtml;
+            chatMessagesContainer.appendChild(messageDiv);
+
+            // تدرج مريح للتمرير التلقائي لأسفل المحادثة
+            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+        }
+
+        // تطبيق قرار الذكاء الاصطناعي برمجياً في الكتالوج والتكامل الفوري
+        function applyAIPrediction(yarnCount) {
+            // البحث عن الصنف المطابق
+            const matchedYarn = turbineYarns.find(y => y.count.includes(yarnCount));
+            if (matchedYarn) {
+                // تفعيل التبويب المخصص للمحاكي لرؤية البكرة
+                switchTab('spool-viewer');
+                
+                // تحديد الصنف وتحديث الرسومات والمدخلات
+                selectSpoolYarn(matchedYarn);
+
+                // إرسال إشعار للمستخدم بأن الربط قد تم بنجاح
+                const successBox = document.getElementById('inquiry-success-box');
+                const successText = document.getElementById('success-message-text');
+                if (successText && successBox) {
+                    successText.innerText = `تم استلام توصية الذكاء الاصطناعي بنجاح! تم تحميل الصنف ${matchedYarn.count} في محاكي البكرات ثلاثي الأبعاد وتم ضبط حاسبة الطلبيات لتسهيل عملية التوريد الخاصة بك.`;
+                    successBox.classList.replace('hidden', 'block');
+                    setTimeout(() => {
+                        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
+            }
+        }
+
+        // تحليل النص المولد من Gemini لمعرفة ما إذا كان يوصي بنوع خيط معين لتقديمه تفاعلياً
+        function extractRecommendedYarn(text) {
+            const counts = ['6/1', '10/1', '12/1', '16/1', '20/1', '30/1'];
+            for (const count of counts) {
+                if (text.includes(count)) {
+                    return count; // إرجاع المقاس الموصى به
+                }
+            }
+            return null;
+        }
+
+        // استدعاء Gemini API الرئيسي لمعالجة السؤال وصياغة التحليل
+        async function sendChatMessage() {
+            const inputField = document.getElementById('ai-user-input');
+            if (!inputField) return;
+
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            // إظهار رسالة المستخدم وتصفير المدخل
+            appendChatMessage("أنت (العميل)", userText, false);
+            inputField.value = '';
+
+            // إظهار لودر التفكير للذكاء الاصطناعي
+            const loader = document.getElementById('ai-typing-loader');
+            if (loader) loader.classList.remove('hidden');
+
+            // إعداد السيستم برومبت (سياق الخبرة والبيانات المخبرية المعتمدة)
+            const systemPrompt = `
+                أنت خبير نسيجي ومستشار فني رائد لمعمل غزل الحسكة في سوريا. مهمتك هي الإجابة عن أسئلة العملاء والمهندسين بدقة علمية ودفء كصناعي محترف.
+                إليك البيانات المخبرية الرسمية المعتمدة لتقرير الفحص الأخير للخيوط التوربينية (Open End) في معملنا، والتي يجب أن تبني عليها إجاباتك الحصرية:
+                - الصنف 6/1 Open End: معامل الاختلاف (C.V)= 11.5 | النقاط الرفيعة= 0 | النقاط السميكة= 95 | العقد والشوائب (Neps)= 261. استعماله: للجينز السميك والمنسوجات شديدة المقاومة وحقائب التعبئة.
+                - الصنف 10/1 Open End: معامل الاختلاف (C.V)= 12.7 | النقاط الرفيعة= 3 | النقاط السميكة= 18 | العقد والشوائب (Neps)= 263. استعماله: للحقائب والمنسوجات المنزلية الثقيلة والمفروشات المتينة.
+                - الصنف 12/1 Open End: معامل الاختلاف (C.V)= 11.9 | النقاط الرفيعة= 3 | النقاط السميكة= 2 | العقد والشوائب (Neps)= 39. استعماله: للأقمشة الصناعية والشراشف ذات المتانة الاستثنائية.
+                - الصنف 16/1 Open End: معامل الاختلاف (C.V)= 13.0 | النقاط الرفيعة= 4 | النقاط السميكة= 2 | العقد والشوائب (Neps)= 99. استعماله: للملابس العملية اليومية، والدنيم الخفيف، والحياكة التقليدية.
+                - الصنف 20/1 Open End: معامل الاختلاف (C.V)= 12.8 | النقاط الرفيعة= 0 | النقاط السميكة= 2 | العقد والشوائب (Neps)= 293. استعماله: مثالي لأقمشة التيشرتات الصيفية والقطنيات الناعمة الدائرية.
+                - الصنف 30/1 Open End: معامل الاختلاف (C.V)= 12.5 | النقاط الرفيعة= 5 | النقاط السميكة= 6 | العقد والشوائب (Neps)= 246. استعماله: للملابس الفاخرة والملابس الداخلية التي تتطلب ملمساً ناعماً جداً ومواصفات دقيقة.
+
+                ملاحظات فنية للردود:
+                1. أجب دائماً باللغة العربية بأسلوب راقٍ، مهني، وفني.
+                2. عند التوصية بصنف، تأكد من كتابة رقمه مثل "30/1" أو "20/1" بوضوح لكي يتمكن نظام التطبيق التفاعلي من قراءته وعرض زر المحاكاة التلقائي.
+                3. اشرح المصطلحات العلمية مثل C.V (معامل الاختلاف للانتظام) إذا سألك المستخدم عنها.
+            `;
+
+            // تحضير الـ API Payload للـ Gemini
+            const apiKey = ""; // سيقوم النظام تلقائياً بتزويده في بيئة التشغيل الحية
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userText }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            // تطبيق استراتيجية التراجع الأسي (Exponential Backoff) لتفادي أي ضغط على سيرفرات الـ API
+            let retries = 3;
+            let delay = 1000;
+            let success = false;
+            let resultData = null;
+
+            while (retries > 0 && !success) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        resultData = await response.json();
+                        success = true;
+                    } else {
+                        throw new Error(`خطأ في السيرفر: ${response.status}`);
+                    }
+                } catch (err) {
+                    retries--;
+                    if (retries === 0) {
+                        break;
+                    }
+                    // التراجع الأسي بالانتظار قبل المحاولة التالية
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; 
+                }
+            }
+
+            // إخفاء مؤشر التحميل والتفكير
+            if (loader) loader.classList.add('hidden');
+
+            if (success && resultData) {
+                const aiTextResponse = resultData.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (aiTextResponse) {
+                    // تحليل الرد للتحقق من وجود توصية نسيجية معينة للربط التفاعلي
+                    const recommendedYarn = extractRecommendedYarn(aiTextResponse);
+                    appendChatMessage("المهندس الاستشاري (AI)", aiTextResponse, true, recommendedYarn);
+                } else {
+                    appendChatMessage("المهندس الاستشاري (AI)", "عذراً، لم أتمكن من صياغة الإجابة الفنية المناسبة في الوقت الحالي. يرجى إعادة المحاولة.", true);
+                }
+            } else {
+                appendChatMessage("المهندس الاستشاري (AI)", "نعتذر منكم. نواجه حالياً صعوبة في الاتصال المباشر بقاعدة بيانات الذكاء الاصطناعي للمختبر. يرجى التأكد من اتصال الإنترنت وإعادة المحاولة بعد قليل.", true);
+            }
+        }
+    </script>
+</body>
+</html>
