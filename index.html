@@ -68,6 +68,16 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2);
         }
+        /* تأثير الشيمر اللامع والسريع أثناء تحميل الصور */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
     </style>
 </head>
 <body class="min-h-screen text-slate-800 flex flex-col justify-between">
@@ -77,7 +87,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
                 <!-- شعار المعمل الحقيقي المرفق -->
-                <img id="header-logo" src="logo.png" alt="Logo" onerror="handleImageError(this, 'logo')" class="w-14 h-14 object-contain rounded-xl border border-slate-100 shadow-sm p-0.5 bg-white">
+                <div class="relative w-14 h-14 bg-slate-100 rounded-xl overflow-hidden border border-slate-100 shadow-sm flex items-center justify-center">
+                    <div id="shimmer-header-logo" class="absolute inset-0 animate-shimmer z-10"></div>
+                    <img id="header-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shimmer-header-logo')" onerror="handleImageError(this, 'shimmer-header-logo', 'logo')" class="w-full h-full object-contain p-0.5 bg-white relative z-0">
+                </div>
                 <div>
                     <span class="block text-lg font-black text-slate-900 leading-tight" data-i18n="mill_title">معمل غزل الحسكة</span>
                     <span class="block text-[10px] font-bold text-amber-800 tracking-wider uppercase" data-i18n="mill_subtitle">AL HASAKAH SPINNING MILL</span>
@@ -148,7 +161,10 @@
                             <!-- رأسية الغلاف الفنية -->
                             <div class="text-center z-10 flex flex-col items-center">
                                 <!-- لوغو معمل غزل الحسكة الفاخر المرفق -->
-                                <img id="cover-logo" src="logo.jpg" alt="Logo" onerror="handleImageError(this, 'logo')" class="w-20 h-20 object-contain rounded-full border-2 border-amber-600 p-1 mb-2">
+                                <div class="relative w-20 h-20 bg-slate-50 rounded-full border-2 border-amber-600 flex items-center justify-center p-1 mb-2">
+                                    <div id="shimmer-cover-logo" class="absolute inset-0 animate-shimmer rounded-full z-10"></div>
+                                    <img id="cover-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shimmer-cover-logo')" onerror="handleImageError(this, 'shimmer-cover-logo', 'logo')" class="w-full h-full object-contain rounded-full relative z-0">
+                                </div>
                                 <h1 class="text-lg sm:text-xl font-black text-slate-900 tracking-wide leading-tight" data-i18n="mill_title">معمل غزل الحسكة</h1>
                                 <p class="text-[8px] font-bold text-slate-500 tracking-wider uppercase mt-0.5" data-i18n="mill_subtitle">AL HASAKAH SPINNING MILL</p>
                                 <div class="w-16 h-[2px] bg-amber-700 my-2"></div>
@@ -158,7 +174,8 @@
 
                             <!-- خط إنتاج الغزل المبتكر -->
                             <div class="my-3 relative flex-grow rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shadow-inner flex flex-col justify-end">
-                                <img id="cover-bg" src="Gemini_Generated_Image_5c94y45c94y45c94.png" alt="Facility" onerror="handleImageError(this, 'main_hall')" class="absolute inset-0 w-full h-full object-cover opacity-85 z-0">
+                                <div id="shimmer-cover-bg" class="absolute inset-0 animate-shimmer z-10"></div>
+                                <img id="cover-bg" src="Gemini_Generated_Image_5c94y45c94y45c94.png" alt="Facility" onload="onImageLoad('shimmer-cover-bg')" onerror="handleImageError(this, 'shimmer-cover-bg', 'main_hall')" class="absolute inset-0 w-full h-full object-cover opacity-85 z-0">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 z-10"></div>
                                 
                                 <!-- يد فنية مدمجة تحمل باقة قطن طبيعية دافئة -->
@@ -250,7 +267,7 @@
             </div>
         </div>
 
-        <!-- تبويب معرض صور المعمل المتكاملة مع الصور الـ 8 الحقيقية المرفقة -->
+        <!-- تبويب معرض صور المعمل المتكاملة مع الصور الـ 8 الحقيقية المرفقة ونظام التسريع التقدمي -->
         <div id="section-gallery" class="tab-content hidden">
             <div class="space-y-8 text-right">
                 <div>
@@ -264,8 +281,9 @@
                     
                     <!-- صورة 1 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="Gemini_Generated_Image_5c94y45c94y45c94.png" alt="Facility Production Line" onerror="handleImageError(this, 'main_hall')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img1" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="Gemini_Generated_Image_5c94y45c94y45c94.png" alt="Facility Production Line" loading="lazy" onload="onImageLoad('shm-img1')" onerror="handleImageError(this, 'shm-img1', 'main_hall')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">TONGDA SYSTEM</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -276,8 +294,9 @@
 
                     <!-- صورة 2 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="Gemini_Generated_Image_pt74w3pt74w3pt74.png" alt="Yarn Holder Rack" onerror="handleImageError(this, 'rack')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img2" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="Gemini_Generated_Image_pt74w3pt74w3pt74.png" alt="Yarn Holder Rack" loading="lazy" onload="onImageLoad('shm-img2')" onerror="handleImageError(this, 'shm-img2', 'rack')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-amber-700/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">TONGDA SPOOLS</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -288,8 +307,9 @@
 
                     <!-- صورة 3 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="Gemini_Generated_Image_azyk55azyk55azyk.png" alt="Machine K903 Feed" onerror="handleImageError(this, 'k903')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img3" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="Gemini_Generated_Image_azyk55azyk55azyk.png" alt="Machine K903 Feed" loading="lazy" onload="onImageLoad('shm-img3')" onerror="handleImageError(this, 'shm-img3', 'k903')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-emerald-700/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">K 903 MODULE</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -300,8 +320,9 @@
 
                     <!-- صورة 4 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="Gemini_Generated_Image_dik0qrdik0qrdik0.png" alt="Rotor Spinning Detail" onerror="handleImageError(this, 'spinning_detail')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img4" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="Gemini_Generated_Image_dik0qrdik0qrdik0.png" alt="Rotor Spinning Detail" loading="lazy" onload="onImageLoad('shm-img4')" onerror="handleImageError(this, 'shm-img4', 'spinning_detail')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-indigo-700/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">ROTOR DETAIL</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -312,8 +333,9 @@
 
                     <!-- صورة 5 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="Gemini_Generated_Image_kuedtvkuedtvkued.png" alt="Fiber Testing Quality Control" onerror="handleImageError(this, 'lab_computer')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img5" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="Gemini_Generated_Image_kuedtvkuedtvkued.png" alt="Fiber Testing Quality Control" loading="lazy" onload="onImageLoad('shm-img5')" onerror="handleImageError(this, 'shm-img5', 'lab_computer')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">QUALITY ASSUR</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -324,8 +346,9 @@
 
                     <!-- صورة 6 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="IMG-20240508-WA0020.jpg" alt="TONGDA full view" onerror="handleImageError(this, 'tongda_hall')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img6" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="IMG-20240508-WA0020.jpg" alt="TONGDA full view" loading="lazy" onload="onImageLoad('shm-img6')" onerror="handleImageError(this, 'shm-img6', 'tongda_hall')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-amber-800/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">TONGDA HALL</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -336,8 +359,9 @@
 
                     <!-- صورة 7 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="IMG-20240704-WA0092.jpg" alt="Automated Spools Line" onerror="handleImageError(this, 'spinning_tubes')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img7" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="IMG-20240704-WA0092.jpg" alt="Automated Spools Line" loading="lazy" onload="onImageLoad('shm-img7')" onerror="handleImageError(this, 'shm-img7', 'spinning_tubes')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-emerald-800/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">ROTOR SPINNING</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -348,8 +372,9 @@
 
                     <!-- صورة 8 -->
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm gallery-card flex flex-col justify-between">
-                        <div class="h-60 overflow-hidden relative">
-                            <img src="IMG-20240819-WA0012.jpg" alt="Yarn Stock pile" onerror="handleImageError(this, 'stock_pile')" class="w-full h-full object-cover">
+                        <div class="h-60 overflow-hidden relative bg-slate-100">
+                            <div id="shm-img8" class="absolute inset-0 animate-shimmer z-10"></div>
+                            <img src="IMG-20240819-WA0012.jpg" alt="Yarn Stock pile" loading="lazy" onload="onImageLoad('shm-img8')" onerror="handleImageError(this, 'shm-img8', 'stock_pile')" class="w-full h-full object-cover relative z-0">
                             <div class="absolute top-4 right-4 bg-blue-700/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[10px] font-bold">READY STOCK</div>
                         </div>
                         <div class="p-5 space-y-2">
@@ -606,7 +631,10 @@
                     <!-- ترويسة شات الروبوت الخبير -->
                     <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                            <img id="chat-logo" src="logo.jpg" alt="Logo" onerror="handleImageError(this, 'logo')" class="w-10 h-10 object-contain rounded-xl bg-white border border-slate-700 shadow-sm">
+                            <div class="relative w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center">
+                                <div id="shm-chat-logo" class="absolute inset-0 animate-shimmer z-10"></div>
+                                <img id="chat-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shm-chat-logo')" onerror="handleImageError(this, 'shm-chat-logo', 'logo')" class="w-full h-full object-contain bg-white border border-slate-700 shadow-sm relative z-0">
+                            </div>
                             <div>
                                 <span class="block text-sm font-black" data-i18n="ai_bot_title">الخبير النسيجي لغزل الحسكة</span>
                                 <span class="block text-[10px] text-slate-400">Gemini AI Model</span>
@@ -622,7 +650,10 @@
                     <div id="ai-chat-messages" class="flex-grow p-6 overflow-y-auto space-y-4 bg-slate-50 text-right flex flex-col justify-end">
                         <!-- ترحيب البداية الافتراضي -->
                         <div class="flex gap-3 max-w-[85%] self-start flex-row-reverse text-right">
-                            <img id="chat-avatar-init" src="logo.jpg" alt="AI Avatar" onerror="handleImageError(this, 'logo')" class="w-8 h-8 rounded-full border border-slate-200 bg-white p-0.5 shadow-sm">
+                            <div class="relative w-8 h-8 bg-slate-100 rounded-full overflow-hidden flex items-center justify-center shrink-0">
+                                <div id="shm-avatar" class="absolute inset-0 animate-shimmer rounded-full z-10"></div>
+                                <img id="chat-avatar-init" src="logo.jpg" alt="AI Avatar" onload="onImageLoad('shm-avatar')" onerror="handleImageError(this, 'shm-avatar', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
+                            </div>
                             <div class="p-4 bg-white rounded-2xl border border-slate-100 text-xs sm:text-sm text-slate-800 space-y-2 leading-relaxed">
                                 <p class="font-black text-amber-800 text-xs mb-1" data-i18n="ai_bot_greeting_title">المهندس الاستشاري الافتراضي:</p>
                                 <p data-i18n="ai_bot_greeting_text">مرحباً بكم في وحدة الاستشارات الهندسية لغزل الحسكة. أنا هنا لمساعدتكم في فهم أنواع ومواصفات خيوطنا التوربينية (Open End) والممشطة (Combed) ومطابقة النمر مع طلبياتكم الصناعية. كيف يمكنني إرشادكم اليوم؟</p>
@@ -664,7 +695,10 @@
             
             <div class="space-y-3">
                 <div class="flex items-center space-x-3 space-x-reverse">
-                    <img id="footer-logo" src="logo.jpg" alt="Logo" onerror="handleImageError(this, 'logo')" class="w-14 h-14 object-contain rounded-xl bg-white border border-slate-700 shadow-sm p-0.5">
+                    <div class="relative w-14 h-14 bg-white rounded-xl overflow-hidden flex items-center justify-center p-0.5 shadow-sm">
+                        <div id="shm-footer-logo" class="absolute inset-0 animate-shimmer z-10"></div>
+                        <img id="footer-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shm-footer-logo')" onerror="handleImageError(this, 'shm-footer-logo', 'logo')" class="w-full h-full object-contain relative z-0">
+                    </div>
                     <span class="text-base font-black tracking-wide" data-i18n="mill_title">معمل غزل الحسكة</span>
                 </div>
                 <p class="text-slate-400 text-xs leading-relaxed" data-i18n="footer_desc">
@@ -706,9 +740,19 @@
 
     <!-- منطق الترجمة والبرمجة التفاعلية بالكامل -->
     <script>
-        // دالة ذكية لإصلاح مشكلة عدم تحميل الصور ديناميكياً وعرض رسومات SVG بديلة جذابة
-        function handleImageError(img, type) {
-            img.onerror = null; // يمنع الدوران اللانهائي في حال حدوث خطأ آخر
+        // دالة ذكية تقوم بإخفاء شاشة الشيمر اللامعة فور انتهاء تحميل الصورة الحقيقية بنجاح لضمان سرعة الاستجابة
+        function onImageLoad(shimmerId) {
+            const shimmer = document.getElementById(shimmerId);
+            if (shimmer) {
+                shimmer.style.display = 'none';
+            }
+        }
+
+        // دالة إصلاح الصور الفورية في حال فشل التحميل أو التأخر
+        function handleImageError(img, shimmerId, type) {
+            // إخفاء مؤشر التحميل فوراً لتفادي ثقل الصفحة
+            onImageLoad(shimmerId);
+            img.onerror = null; 
             let svg = '';
             
             if (type === 'logo') {
@@ -911,7 +955,7 @@
                 sim_subtitle: "Sîmûlasyona mîkro ya taybet",
                 sim_title: "Jimareya benê turbîn an şenkirî hilbijêre",
                 sim_desc_hint: "Stûrî û rûyê kulîkê yekser diguhere li gorî hilbijartinê.",
-                sim_color_title: "Reng û muameleya pembûyê Cizîrê:",
+                sim_color_title: "Reng û muameleya pembûyê Cizîرê:",
                 color_natural: "Pembûyê xwezayî",
                 color_bleached: "Spîkirî",
                 color_tinted: "Muamelekirî",
@@ -1473,7 +1517,7 @@
             animationFrameId = requestAnimationFrame(animateSpool);
         }
 
-        // توليد جدول دليل المنتجات واستخداماتها الفنية بدقة بدون فحص مخبري
+        // دليل المنتجات الفنية بدون فحص مخبري
         function renderSpecsTable() {
             const tbody = document.getElementById('turbine-table-body');
             if(!tbody) return;
@@ -1579,7 +1623,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // معالجة وإصدار الطلب المبدئي التفاعلي وإرساله بالبريد الإلكتروني المستهدف walidhami1986.wh@gmail.com
+        // معالجة وإصدار الطلب المبدئي التفاعلي وإرساله بالبريد الإلكتروني walidhami1986.wh@gmail.com
         function handleInquirySubmit(event) {
             event.preventDefault();
             const calcYarnEl = document.getElementById('calc-yarn-type');
@@ -1747,7 +1791,10 @@
 
             let avatarHtml = '';
             if (isAi) {
-                avatarHtml = `<img src="logo.jpg" alt="AI Avatar" onerror="handleImageError(this, 'logo')" class="w-8 h-8 rounded-full border border-slate-200 bg-white p-0.5 shadow-sm shrink-0">`;
+                avatarHtml = `<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0">
+                                <div id="shm-chat-ai-${Math.random().toString(36).substr(2, 5)}" class="absolute inset-0 animate-shimmer rounded-full z-10" style="display:none"></div>
+                                <img src="logo.jpg" alt="AI Avatar" onerror="handleImageError(this, '', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
+                             </div>`;
             } else {
                 avatarHtml = `
                     <div class="w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-inner">
