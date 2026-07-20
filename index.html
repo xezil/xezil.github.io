@@ -633,7 +633,7 @@
                         <div class="flex items-center gap-3">
                             <div class="relative w-10 h-10 bg-slate-100 rounded-xl overflow-hidden flex items-center justify-center">
                                 <div id="shm-chat-logo" class="absolute inset-0 animate-shimmer z-10"></div>
-                                <img id="chat-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shm-chat-logo')" onerror="handleImageError(this, 'shm-chat-logo', 'logo')" class="w-full h-full object-contain bg-white border border-slate-700 shadow-sm relative z-0">
+                                <img id="chat-logo" src="logo.png" alt="Logo" onload="onImageLoad('shm-chat-logo')" onerror="handleImageError(this, 'shm-chat-logo', 'logo')" class="w-full h-full object-contain bg-white border border-slate-700 shadow-sm relative z-0">
                             </div>
                             <div>
                                 <span class="block text-sm font-black" data-i18n="ai_bot_title">الخبير النسيجي لغزل الحسكة</span>
@@ -652,7 +652,7 @@
                         <div class="flex gap-3 max-w-[85%] self-start flex-row-reverse text-right">
                             <div class="relative w-8 h-8 bg-slate-100 rounded-full overflow-hidden flex items-center justify-center shrink-0">
                                 <div id="shm-avatar" class="absolute inset-0 animate-shimmer rounded-full z-10"></div>
-                                <img id="chat-avatar-init" src="logo.jpg" alt="AI Avatar" onload="onImageLoad('shm-avatar')" onerror="handleImageError(this, 'shm-avatar', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
+                                <img id="chat-avatar-init" src="logo.png" alt="AI Avatar" onload="onImageLoad('shm-avatar')" onerror="handleImageError(this, 'shm-avatar', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
                             </div>
                             <div class="p-4 bg-white rounded-2xl border border-slate-100 text-xs sm:text-sm text-slate-800 space-y-2 leading-relaxed">
                                 <p class="font-black text-amber-800 text-xs mb-1" data-i18n="ai_bot_greeting_title">المهندس الاستشاري الافتراضي:</p>
@@ -697,7 +697,7 @@
                 <div class="flex items-center space-x-3 space-x-reverse">
                     <div class="relative w-14 h-14 bg-white rounded-xl overflow-hidden flex items-center justify-center p-0.5 shadow-sm">
                         <div id="shm-footer-logo" class="absolute inset-0 animate-shimmer z-10"></div>
-                        <img id="footer-logo" src="logo.jpg" alt="Logo" onload="onImageLoad('shm-footer-logo')" onerror="handleImageError(this, 'shm-footer-logo', 'logo')" class="w-full h-full object-contain relative z-0">
+                        <img id="footer-logo" src="logo.png" alt="Logo" onload="onImageLoad('shm-footer-logo')" onerror="handleImageError(this, 'shm-footer-logo', 'logo')" class="w-full h-full object-contain relative z-0">
                     </div>
                     <span class="text-base font-black tracking-wide" data-i18n="mill_title">معمل غزل الحسكة</span>
                 </div>
@@ -1793,7 +1793,7 @@
             if (isAi) {
                 avatarHtml = `<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0">
                                 <div id="shm-chat-ai-${Math.random().toString(36).substr(2, 5)}" class="absolute inset-0 animate-shimmer rounded-full z-10" style="display:none"></div>
-                                <img src="logo.jpg" alt="AI Avatar" onerror="handleImageError(this, '', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
+                                <img src="logo.png" alt="AI Avatar" onerror="handleImageError(this, '', 'logo')" class="w-full h-full object-contain rounded-full border border-slate-200 bg-white p-0.5 shadow-sm relative z-0">
                              </div>`;
             } else {
                 avatarHtml = `
